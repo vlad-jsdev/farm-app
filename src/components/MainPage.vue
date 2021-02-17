@@ -82,6 +82,7 @@ export default {
   top: 0px;
   background: linear-gradient(63.53deg, #2D8550 16.62%, #5E6EC2 83.38%);
   opacity: 0.7;
+  z-index: 1;
 }
 .right-block{
   display: flex;
