@@ -14,14 +14,25 @@
         <h2>Параметри: </h2>
         <div class="results">
           <div class="sad">
-            <font-awesome-icon icon="frown"  size="lg"/>
+            <font-awesome-icon icon="frown"  size="3x" class="smile-icons" style="color: #D9D9D9"/>
+            <h1 class="icons-num">1</h1>
+
           </div>
-          <div class="smile"></div>
-          <div class="heart"></div>
+          <div class="smile">
+            <font-awesome-icon icon="smile"  size="3x" class="smile-icons" style="color: #FD98BB"/>
+            <h1 class="icons-num">1</h1>
+          </div>
+          <div class="heart">
+            <font-awesome-icon icon="heart"  size="3x" class="smile-icons" style="color:  #FD98BB"/>
+            <h1 class="icons-num">1</h1>
+          </div>
         </div>
 
       </div>
-      <div class="bottom-info"> smth </div>
+      <div class="bottom-info">
+        <h1 class="bottom-text">Осталось в очереди: <br>
+        14/15</h1>
+      </div>
     </div>
     <div class="right-block">
       <CardsComponents/>
@@ -94,7 +105,13 @@ export default {
 .parameters {
   margin: 3rem;
 }
+.smile-icons {
+  margin-left: .5rem;
+  align-self: center;
+}
 .sad, .smile, .heart {
+  display: flex;
+  justify-content: space-between;
   height: 4rem;
   width: 10rem;
   background: #FFFFFF;
@@ -102,10 +119,21 @@ export default {
   border-radius: 40px;
   //transform: rotate(-180deg);
   margin: 1rem;
+
+}
+.icons-num{
+  font-size: 30pt;
+  align-self: center;
+  margin-right: 3rem;
 }
 .bottom-info{
-  background: #FFFFFF;
-  opacity: 0.15;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, .15);
+}
+.bottom-text {
+  align-self: center;
+  text-align: center;
 }
 </style>
