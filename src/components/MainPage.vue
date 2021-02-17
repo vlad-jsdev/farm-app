@@ -61,6 +61,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main{
+  display: flex;
+  flex-direction: row;
+}
 .buttons-head {
   display: flex;
   flex-direction: row;
@@ -72,12 +76,23 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 30rem;
+  width: 30vw;
   height: 100%;
   left: 0px;
   top: 0px;
   background: linear-gradient(63.53deg, #2D8550 16.62%, #5E6EC2 83.38%);
   opacity: 0.7;
+}
+.right-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  width: 70vw;
+
 }
 .icons {
   color:#FF5864 ;
