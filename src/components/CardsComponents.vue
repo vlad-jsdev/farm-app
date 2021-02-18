@@ -1,20 +1,25 @@
 <template>
   <div class="card-main">
     <div class="card">
-      <VueTinder class='vue-tinder' key-name="id" :queue.sync="queue" @submit="onSubmit">
+      <VueTinder ref="tinder" class='vue-tinder' key-name="id" :queue.sync="queue" @submit="onSubmit">
         <div
             class="pic"
             slot-scope="source"
             :style="{
                 'background-image': `url(${source.data.url})`
-        }"><p>{{source.data.text}}</p></div>
-
+        }"><p>{{source.data.text}}</p>
+     
+        </div>
+ <div class="like-pointer" slot="like" ><span>Препарат 1</span></div>
+      <div class="nope-pointer" slot="nope" ><span>Препарат 2</span></div>
+      <div class="super-pointer" slot="super" ><span>Препарат 3</span></div>
       </VueTinder>
+
     </div>
     <div class="bottom-buttons">
-      <div slot="like" class="like"><span>Препарат 1</span></div>
-              <div slot="nope" class="nope"><span>Препарат 2</span></div>
-              <div slot="super" class="super"><span>Препарат 3</span></div>
+      <div class="like" @click="decide('like')"><span>Препарат 1</span></div>
+      <div class="nope"  @click="decide('nope')"><span>Препарат 2</span></div>
+      <div class="super"  @click="decide('super')"><span>Препарат 3</span></div>
     </div>
   </div>
 </template>
@@ -78,21 +83,37 @@ export default {
       this.offset += count
       this.queue = this.queue.concat(list)
     },
+    decide(choice) {
+      this.$refs.tinder.decide(choice)
+    },
     onSubmit(type) {
       console.log(type)
+      this.$emit('type', type)
       // type: result，'like': swipe right, 'nope': swipe left, 'super': swipe up
       // key:  The keyName of the removed card
       // item: Child object in queue
-      console.log('here')
       if (this.queue.length < 3) {
         this.mock()
       }
     }
+
   }
 }
 </script>
 
 <style scoped>
+.like-pointer,.nope-pointer{
+  position: absolute;
+  z-index: 1;
+  background-color: red;
+  top: 40%;
+  left: 20%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  width: 200px;
+  height: 100px;
+  transform: rotate(-10deg);
+  }
 .card-main{
   display: flex;
   flex-direction: column;

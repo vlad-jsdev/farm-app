@@ -15,16 +15,16 @@
         <div class="results">
           <div class="sad">
             <font-awesome-icon icon="frown"  size="3x" class="smile-icons" style="color: #D9D9D9"/>
-            <h1 class="icons-num">1</h1>
+            <h1 class="icons-num">{{sad}}</h1>
 
           </div>
           <div class="smile">
             <font-awesome-icon icon="smile"  size="3x" class="smile-icons" style="color: #FD98BB"/>
-            <h1 class="icons-num">1</h1>
+            <h1 class="icons-num">{{smile}}</h1>
           </div>
           <div class="heart">
             <font-awesome-icon icon="heart"  size="3x" class="smile-icons" style="color:  #FD98BB"/>
-            <h1 class="icons-num">1</h1>
+            <h1 class="icons-num">{{heart}}</h1>
           </div>
         </div>
 
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="right-block">
-      <CardsComponents/>
+      <CardsComponents @type='onBuy'/>
     </div>
   </div>
 </template>
@@ -45,16 +45,26 @@ import CardsComponents from "@/components/CardsComponents";
 export default {
   name: 'MainPage',
   components: {CardsComponents},
-  props: {
-    msg: String
-  },
   data: () =>
       ({
-
+        sad: 0,
+        smile: 0,
+        heart: 0
     })
   ,
   methods: {
-
+      onBuy(type){
+        console.log(type)
+          if(type.type === 'like'){
+            this.smile += 1
+          }
+          if(type.type === 'nope'){
+            this.sad += 1
+          }
+          if(type.type === 'super'){
+            this.heart += 1
+          }
+      }
   }
 }
 </script>
