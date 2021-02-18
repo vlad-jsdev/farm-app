@@ -1,14 +1,12 @@
 <template>
-    <div></div>
+    <div><span>Finish Page {{results}}</span></div>
 </template>
 
 <script>
 
 export default {
   name: 'App',
-  // components: {
-  //   MainPage
-  // },
+props: ['results'],
   data: () => {
     return {
     }

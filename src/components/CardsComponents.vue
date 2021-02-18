@@ -71,10 +71,18 @@ export default {
             ' дорогі? Можна хороший препарат недорого?\n' +
             '\n'
       }
-    ]
+    ],
+    countSource: 0,
+    counter: 0,
+    results: {
+      smile: 0,
+      sad: 0,
+      heart: 0
+    }
   }),
   created() {
     this.mock()
+    this.countSource = this.source.length
   },
 
   methods: {
@@ -87,13 +95,33 @@ export default {
       this.$refs.tinder.decide(choice)
     },
     onSubmit(type) {
-      console.log(type)
-      this.$emit('type', type)
+          this.counter++
+          if(type.type === 'like'){
+            this.results.smile++
+          }
+          if(type.type === 'nope'){
+            this.results.sad++
+          }
+          if(type.type === 'super'){
+            this.results.heart++
+          }
+          console.log(this.results)
+        this.$emit('type', this.results)
       // type: result，'like': swipe right, 'nope': swipe left, 'super': swipe up
       // key:  The keyName of the removed card
       // item: Child object in queue
       if (this.queue.length < 3) {
         this.mock()
+      }
+      if(this.countSource === this.counter) {
+          console.log('LastPage')
+          this.$router.push({
+    name: 'finish',
+    params: {
+        results: this.results // or anything you want
+    }
+}) 
+          // this.$router.push('/finish')
       }
     }
 
