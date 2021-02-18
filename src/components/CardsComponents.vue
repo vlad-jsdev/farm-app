@@ -8,13 +8,14 @@
             :style="{
                 'background-image': `url(${source.data.url})`
         }"><p>{{source.data.text}}</p></div>
-        
-        <!--        <div slot="like">like</div>-->
-<!--        <div class="nope">nope</div>-->
-<!--        <div class="super">super</div>-->
+
       </VueTinder>
     </div>
-    <div class="bottom-buttons"></div>
+    <div class="bottom-buttons">
+      <div slot="like" class="like"><span>Препарат 1</span></div>
+              <div slot="nope" class="nope"><span>Препарат 2</span></div>
+              <div slot="super" class="super"><span>Препарат 3</span></div>
+    </div>
   </div>
 </template>
 
@@ -93,7 +94,19 @@ export default {
 
 <style scoped>
 .card-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-self: center;
+}
+.card{
+  align-self: center;
+
+}
+.bottom-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .vue-tinder {
   display: flex;
@@ -118,10 +131,22 @@ p{
   bottom: 0;
 }
 .like, .nope, .super {
-  height: 100px;
-  width: 300px;
-  background: #5E6EC2;
-  border: #2D8550;
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 100px;
+  margin: 2rem;
+}
+.like {
+  background: linear-gradient(266.19deg, #8049C7 0%, #CA57FD 100%);
+}
+.nope {
+  background: linear-gradient(266.19deg, #169AE4 0%, #0CC4FA 100%);
+}
+
+.super {
+  background: linear-gradient(90deg, #FFD748 0.02%, rgba(195, 199, 11, 0.96) 99.97%, #CAC6AB 99.98%, #D3E9E1 99.99%);
 }
 
 </style>
