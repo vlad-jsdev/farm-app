@@ -7,19 +7,23 @@
             slot-scope="source"
             :style="{
                 'background-image': `url(${source.data.url})`
-        }"><p>{{source.data.text}}</p>
+        }">
+          <div class="text-card">
+            <h3 class="bold">{{source.data.title}}</h3>
+            <p>{{source.data.text}}</p>
+          </div>
      
         </div>
- <div class="like-pointer" slot="like" ><span>Препарат 1</span></div>
-      <div class="nope-pointer" slot="nope" ><span>Препарат 2</span></div>
-      <div class="super-pointer" slot="super" ><span>Препарат 3</span></div>
+ <div class="like-pointer" slot="nope" ><span class="like-text bold ">Препарат 1</span></div>
+      <div class="nope-pointer" slot="super" ><span class="nope-text bold">Препарат 2</span></div>
+      <div class="super-pointer" slot="like" ><span class="super-text bold">Препарат 3</span></div>
       </VueTinder>
 
     </div>
     <div class="bottom-buttons">
-      <div class="like" @click="decide('like')"><span>Препарат 1</span></div>
-      <div class="nope"  @click="decide('nope')"><span>Препарат 2</span></div>
-      <div class="super"  @click="decide('super')"><span>Препарат 3</span></div>
+      <div class="like" @click="decide('nope')"><span class="white-text">Препарат 1</span></div>
+      <div class="nope"  @click="decide('super')"><span class="white-text">Препарат 2</span></div>
+      <div class="super"  @click="decide('like')"><span class="white-text">Препарат 3</span></div>
     </div>
   </div>
 </template>
@@ -39,35 +43,35 @@ export default {
       {
         id: 1,
         url: 'https://i.ibb.co/44rBJfj/1.jpg',
-        text: 'Марія, 19 років\n' +
-            'Бабуся приймає брендовий препарат від болю в суглобах, він допомагає,\n' +
+        title: 'Марія, 19 років',
+        text: 'Бабуся приймає брендовий препарат від болю в суглобах, він допомагає,\n' +
             ' але занадто дорогий. У Вас є якісний аналог з нижчою ціною? Якщо ні — давайте бренд.\n'
       },
       {
         id: 2 ,
         url: 'https://i.ibb.co/2SfMx3v/2.jpg',
-        text: 'Любов, 58 років\n' +
-            'Лікар призначив препарат від артеріальної гіпертензії, а бренд\n' +
+        title: 'Любов, 58 років',
+        text: 'Лікар призначив препарат від артеріальної гіпертензії, а бренд\n' +
             ' дорого коштує. Тому мені потрібен аналог з хорошою ефективністю та приємною ціною.\n'
       },
       {
         id: 3 ,
         url: 'https://i.ibb.co/cQ83zzy/3.jpg',
-        text: 'Олександр, 20 років\n' +
-            'Порекомендуйте ефективний препарат від болю в горлі за розумну ціну.'
+        title: 'Олександр, 20 років',
+        text: 'Порекомендуйте ефективний препарат від болю в горлі за розумну ціну.'
       },
       {
         id: 4,
         url: 'https://i.ibb.co/mT5MTTs/4.jpg',
-        text: 'Ірина, 55 років\n' +
-            'У мене часто невралгії, лікар призначив вітаміни групи В. Мені потрібен якісний\n' +
+        title: 'рина, 55 років',
+        text: 'У мене часто невралгії, лікар призначив вітаміни групи В. Мені потрібен якісний\n' +
             ' аналог за прийнятною ціною.\n'
       },
       {
         id: 5 ,
         url: 'https://i.ibb.co/xCmq6Mk/5.jpg',
-        text: 'Степан, 61 рік\n' +
-            'Спросоння відсунув гарячий чайник рукою та обпікся. У Вас всі ліки від опіків такі\n' +
+        title: 'Степан, 61 рік',
+        text: 'Спросоння відсунув гарячий чайник рукою та обпікся. У Вас всі ліки від опіків такі\n' +
             ' дорогі? Можна хороший препарат недорого?\n' +
             '\n'
       }
@@ -130,18 +134,53 @@ export default {
 </script>
 
 <style scoped>
-.like-pointer,.nope-pointer{
+.bold {
+  font-family: "Avenir Bold";
+  color: #8E9AD5;
+}
+.white-text{
+  font-family: "Avenir Bold";
+  align-self: center;
+  color: white;
+}
+.like-pointer,.nope-pointer, .super-pointer{
   position: absolute;
   z-index: 1;
-  background-color: red;
   top: 40%;
   left: 20%;
-  transform: translateX(-50%);
-  transform: translateY(-50%);
   width: 200px;
-  height: 100px;
+  height: 60px;
   transform: rotate(-10deg);
   }
+.like-pointer{
+  border: 8px solid #8049C7;
+}
+.like-text, .nope-text,.super-text{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.like-text{
+
+  color: #8049C7;
+
+}
+
+.nope-pointer{
+  border: 8px solid #169AE4;
+}
+.nope-text{
+  color: #169AE4;
+}
+.super-pointer{
+  border: 8px solid #FFB903;
+
+}
+.super-text{
+  color: #FFB903;
+}
 .card-main{
   display: flex;
   flex-direction: column;
@@ -150,12 +189,12 @@ export default {
 }
 .card{
   align-self: center;
-
 }
 .bottom-buttons{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .vue-tinder {
   display: flex;
@@ -174,9 +213,10 @@ export default {
   background-size: 335px;
   background-position: top;
 }
-p{
+.text-card{
   display: block;
   position: absolute;
+  margin: 2rem;
   bottom: 0;
 }
 .like, .nope, .super {

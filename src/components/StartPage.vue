@@ -5,9 +5,9 @@
       <div class="text-circle">
 
         <div><p>Добро пожаловать в игру</p>
-          <h1>Помоги<br>
+          <h1 class="bold">Помоги<br>
             ФАРМАЦЕВТУ</h1></div>
-        <router-link class="start-button" to="/main"><span>Начать</span></router-link>
+        <router-link class="start-button" to="/main"><span class="bold">Начать</span></router-link>
       </div>
     </div>
   </div>
@@ -29,7 +29,9 @@ export default {
 </script>
 
 <style scoped>
-
+.bold {
+  font-family: "Avenir Bold";
+}
 img {
   width: 100%;
   height: 100%;

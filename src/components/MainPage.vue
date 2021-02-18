@@ -11,20 +11,20 @@
         </div>
       </div>
       <div class="parameters">
-        <h2>Параметри: </h2>
+        <h2 class="bold">Параметри: </h2>
         <div class="results">
           <div class="sad">
             <font-awesome-icon icon="frown"  size="3x" class="smile-icons" style="color: #D9D9D9"/>
-            <h1 class="icons-num">{{ results.sad }}</h1>
+            <h1 class="icons-num bold">{{ results.sad }}</h1>
 
           </div>
           <div class="smile">
             <font-awesome-icon icon="smile"  size="3x" class="smile-icons" style="color: #FD98BB"/>
-            <h1 class="icons-num">{{results.smile}}</h1>
+            <h1 class="icons-num bold">{{results.smile}}</h1>
           </div>
           <div class="heart">
             <font-awesome-icon icon="heart"  size="3x" class="smile-icons" style="color:  #FD98BB"/>
-            <h1 class="icons-num">{{results.heart}}</h1>
+            <h1 class="icons-num bold">{{results.heart}}</h1>
           </div>
         </div>
 
@@ -65,6 +65,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bold{
+  font-family: "Avenir Bold";
+}
 .main{
   display: flex;
   flex-direction: row;
@@ -80,7 +83,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 30vw;
+  width: 35vw;
   height: 100%;
   left: 0px;
   top: 0px;
@@ -96,7 +99,7 @@ export default {
   height: 100%;
   right: 0px;
   top: 0px;
-  width: 70vw;
+  width: 65vw;
 
 }
 .icons {
