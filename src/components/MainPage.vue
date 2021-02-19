@@ -20,11 +20,11 @@
           </div>
           <div class="smile">
             <font-awesome-icon icon="smile"  size="3x" class="smile-icons" style="color: #FD98BB"/>
-            <h1 class="icons-num bold">{{results.smile}}</h1>
+            <h1 class="icons-num bold">{{results.heart}}</h1>
           </div>
           <div class="heart">
             <font-awesome-icon icon="heart"  size="3x" class="smile-icons" style="color:  #FD98BB"/>
-            <h1 class="icons-num bold">{{results.heart}}</h1>
+            <h1 class="icons-num bold">{{results.smile}}</h1>
           </div>
         </div>
 
