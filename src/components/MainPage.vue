@@ -3,12 +3,12 @@
     <div class="left-block">
 
       <div class="buttons-head">
-        <div class="home">
+        <router-link to="/" class="home">
           <font-awesome-icon icon="home" class="icons" size="lg"/>
-        </div>
-        <div class="reload">
+        </router-link>
+        <router-link to="/main" class="reload">
           <font-awesome-icon icon="sync" class="icons" size="lg"/>
-        </div>
+        </router-link>
       </div>
       <div class="parameters">
         <h2 class="bold">Параметри: </h2>
@@ -56,14 +56,12 @@ export default {
   ,
   methods: {
       onBuy(type){
-        console.log(this.results)
         this.results = type
       }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .bold{
   font-family: "Avenir Bold";
@@ -83,7 +81,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  width: 35vw;
+  width: 35%;
   height: 100%;
   left: 0px;
   top: 0px;
@@ -99,7 +97,7 @@ export default {
   height: 100%;
   right: 0px;
   top: 0px;
-  width: 65vw;
+  width: 65%;
 
 }
 .icons {
@@ -140,7 +138,6 @@ export default {
   background: #FFFFFF;
   box-shadow: 0px 0px 50px rgba(131, 42, 64, 0.4);
   border-radius: 40px;
-  //transform: rotate(-180deg);
   margin: 1rem;
 
 }

@@ -38,9 +38,7 @@ img {
   z-index: -1;
 }
 .circle{
-  /* Ellipse */
   display: flex;
-
   position: absolute;
   flex-direction: column;
   justify-content: center;
@@ -49,8 +47,6 @@ img {
   height: 40rem;
   left: 5rem;
   top: -2rem;
-
-  /* main gradient */
   background: linear-gradient(63.53deg, #2D8550 16.62%, #5E6EC2 83.38%);
   border-radius: 100%;
   z-index: 1;
@@ -69,17 +65,11 @@ p {
   font-size: 18pt;
   letter-spacing: 0.02em;
   text-align: left;
-
-  /* white */
-
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 h1 {
   letter-spacing: 0.02em;
-
-  /* white */
-
   color: #FFFFFF;
   font-size: 30pt;
   text-align: left
@@ -95,12 +85,10 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Rectangle */
   align-self: center !important;
   height: 3.5rem;
   width: 15rem;
   margin-top: 3rem;
-  /* white */
   background: #FFFFFF;
   border-radius: 100px;
   text-decoration: none;

@@ -5,13 +5,10 @@
 </template>
 
 <script>
-// import MainPage from "@/components/MainPage";
 
 export default {
   name: 'App',
-  // components: {
-  //   MainPage
-  // },
+
   data: () => {
     return {
     }
@@ -24,8 +21,8 @@ html, body{
   height: 100% ;
   width: 100%;
   margin: 0;
-  //overflow: hidden;
 }
+
 @font-face {
   font-family: "Avenir";
   src: url('./assets/avenirnextcyr-light.ttf');

@@ -81,12 +81,14 @@ export default {
     results: {
       smile: 0,
       sad: 0,
-      heart: 0
+      heart: 0,
+      num: 0
     }
   }),
   created() {
     this.mock()
     this.countSource = this.source.length
+    this.results.num = this.countSource
   },
 
   methods: {

@@ -1,32 +1,35 @@
 <template>
     <div class="finish">
       <div class="left-block">
-        <div class="home">
+        <router-link to="/" class="home">
           <font-awesome-icon icon="home" class="icons" size="lg"/>
-        </div>
+        </router-link>
         <div class="result">
           <div class="result-1">
-            <div>{{results.smile}}</div>
+            <div><h1>{{results.smile}}%</h1></div>
             <div><p>Препарат 1</p></div>
           </div>
           <div class="result-2">
-            <div>{{results.sad}}</div>
+            <div><h1>{{results.sad}}%</h1></div>
             <div><p>Препарат 2</p></div>
           </div>
 
           <div class="result-3">
-            <div>{{results.heart}}</div>
+            <div><h1>{{results.heart}}%</h1></div>
             <div><p>Препарат 3</p></div>
           </div>
         </div>
         <div class="result-text">
           <div class="title-text">
-            <h3>Ваш результат:</h3><br>
-            <h1>"Что я здесь делаю?"</h1>
+            <h3>Ваш результат:</h3>
+            <h1 class="bold">"Что я здесь делаю?"</h1>
+            <p>Это тестовое задание, так что не будем <br>углубляться в глубины проблем фармацевтов.</p>
           </div>
-          <div class="main-text"></div>
         </div>
-        <div class="try"></div>
+
+        <div class="try">
+          <router-link to="/" class="button-try"><span class="white-text bold">Попробовать еще</span></router-link>
+        </div>
       </div>
       <div class="circle-pic">
         <img src="../assets/image.jpg" alt="">
@@ -43,7 +46,15 @@ props: ['results'],
   data: () => {
     return {
     }
+  },
+  created() {
+    this.results.num = 100 / this.results.num
+    this.results.smile = this.results.num * this.results.smile
+    this.results.sad = this.results.num * this.results.sad
+    this.results.heart = this.results.num * this.results.heart
+    console.log(this.results.num)
   }
+
 }
 </script>
 
@@ -54,21 +65,19 @@ html, body{
   margin: 0;
   overflow: hidden;
 }
+.bold{
+  font-family: "Avenir Bold";
+}
 .finish{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 img{
-  //position: absolute;
-  //top: 0;
-  //right: 30px;
   height: 450px;
 }
+
 .result{
-  //position: absolute;
-  //top: 260px;
-  //left: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -78,12 +87,19 @@ img{
 .result-1, .result-2, .result-3 {
   margin: 0 2rem 2rem 2rem;
 }
+p{
+  color: black;
+}
 .result-text{
-  position: absolute;
   display: flex;
 }
+.title-text{
+  margin-left: 5rem;
+  color: #8E9AD5
+;
+}
 .home{
-
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,6 +110,27 @@ img{
   margin: 4rem;
 }
 .icons{
+  color: white;
+  text-decoration: none;
   align-self: center;
+}
+.try{
+  display: flex;
+}
+.button-try
+{
+  text-decoration: none;
+  background: linear-gradient(90deg, #D9D9D9 0%, #A1A1A1 100%);
+  border-radius: 100px;
+  margin: 5rem;
+  height: 60px;
+  width: 270px;
+  display: flex;
+  justify-content: center;
+}
+.white-text{
+  align-self: center;
+  color: white;
+  font-size: 15pt;
 }
 </style>
